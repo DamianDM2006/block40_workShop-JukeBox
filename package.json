@@ -22,5 +22,19 @@
   },
   "engines": {
     "node": ">=22"
-  }
+  },
+  "version": "1.0.0",
+  "description": "Introducing Jukebox, a digital music service where users can curate playlists of tracks to best match their mood!",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DamianDM2006/block40_workShop-JukeBox.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DamianDM2006/block40_workShop-JukeBox/issues"
+  },
+  "homepage": "https://github.com/DamianDM2006/block40_workShop-JukeBox#readme"
 }
