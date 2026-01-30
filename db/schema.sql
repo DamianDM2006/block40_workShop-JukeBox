@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS playlist_tracks;
+DROP TABLE IF EXISTS playlists_tracks;
 DROP TABLE IF EXISTS tracks;
 DROP TABLE IF EXISTS playlist;
 
