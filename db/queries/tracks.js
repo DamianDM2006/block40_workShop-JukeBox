@@ -32,7 +32,7 @@ export const getTrackbyId = async(id) => {
     SELECT * FROM tracks
     WHERE id = ${id}
     `;
-    const { rows: [track] } = db.query(sql);
+    const { rows: [track] } = await db.query(sql);
     return track;
   } catch(err) {
     console.log(`ERROR_GETTING TRACK BY ID`, err);

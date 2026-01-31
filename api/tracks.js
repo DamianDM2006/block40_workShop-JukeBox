@@ -10,7 +10,12 @@ router.get("/", async(req, res, next) => {
 
 router.param("id", async(req, res, next, id) => {
   const track = await getTrackbyId(id);
-
+  if (!/^\d+$/.test(id)) return res.status(400).send(`INPROPER INPUT: id must be a NUMBER`);
+  if (!track) return res.status(404).send(`Track is not found`);
   req.track = track;
   next();
-})
+});
+
+router.get("/:id", (req, res) => {
+  res.send(req.track);
+});
