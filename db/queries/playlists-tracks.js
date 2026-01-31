@@ -1,10 +1,10 @@
 import db from "../client.js";
 
-export const createPlayListTrack = async(refPlId, refTId) => {
+export const createPlayListTrack = async(playListId, trackId) => {
   try {
     const sql = `
     INSERT INTO playlists_tracks (playlist_id, track_id)
-    VALUES (${refPlId}, ${refTId})
+    VALUES (${playListId}, ${trackId})
     RETURNING *
     `;
     const { rows: [playlistTrack]} = await db.query(sql);
@@ -12,4 +12,4 @@ export const createPlayListTrack = async(refPlId, refTId) => {
   } catch(err) {
     console.log(`ERROR_CREATING REFERENCE TABLE`, err);
   }
-}
+};

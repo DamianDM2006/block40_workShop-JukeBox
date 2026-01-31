@@ -1,5 +1,5 @@
 import db from "#db/client";
-import { createPlaylist } from "./queries/playlist.js";
+import { createPlaylist } from "./queries/playlists.js";
 import { createTrack } from "./queries/tracks.js";
 import { createPlayListTrack } from "./queries/playlists-tracks.js";
 
