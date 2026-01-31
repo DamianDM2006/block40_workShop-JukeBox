@@ -17,7 +17,6 @@ export const createPlaylist = async (name, description) => {
 };
 
 export const getPlayLists = async () => {
-  console.log(`getting play list`);
   try {
     const sql = `
     SELECT * FROM playlists
@@ -36,7 +35,7 @@ export const getPlayListId = async (id) => {
     WHERE id = ${id}
     `;
     const { rows: [playlist] } = await db.query(sql);
-    console.log(`playlist`, playlist);
+    return playlist;
   } catch(err) {
     console.log(`ERROR_GETTING PLAYLIST`, err);
   }
@@ -46,11 +45,11 @@ export const getPlaylistIdWithTracks = async(id) => {
   try {
     const sql = `
     SELECT
-      playlists.*,
-      tracks.name AS track_name,
-      tracks.duration_ms
+    playlists.*,
+    tracks.name AS track_name,
+    tracks.duration_ms
     FROM
-      playlists_tracks
+    playlists_tracks
     JOIN playlists ON playlists_tracks.playlist_id = playlists.id
     JOIN tracks ON playlists_tracks.track_id = tracks.id
     WHERE playlists.id = ${id}
