@@ -4,9 +4,7 @@ import { createTrack } from "./queries/tracks.js";
 import { createPlayListTrack } from "./queries/playlists-tracks.js";
 
 const seed = async() => {
-  // TODO
   try {
-    console.log(`Seeding in progress`);
     for (let p = 1; p <= 10; p++) await createPlaylist(`Playlist-${p}`, `describing > ${p}.`);
     for (let t = 1; t <= 20; t++) await createTrack(`Track-${t}`, 10000);
     for (let pt = 1; pt <= 15; pt++) {

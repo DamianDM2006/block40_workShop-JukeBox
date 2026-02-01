@@ -5,6 +5,8 @@ import {
   getPlaylistIdWithTracks,
   createPlaylist
   } from "../db/queries/playlists.js";
+import { createPlayListTrack } from "../db/queries/playlists-tracks.js";
+
 const router = express.Router();
 export default router;
 
@@ -40,4 +42,14 @@ router.post("/", async(req, res, next) => {
   if (!name || !description) return res.status(400).send(`ERROR: Request Body is missing required fields.`);
   const newPlaylist = await createPlaylist(name, description);
   res.status(201).send(newPlaylist);
+});
+
+router.post("/:id/tracks", async(req, res, next) => {
+  if (!req.body) return res.status(400).send(`ERROR: Request Body is required.`);
+
+  const { trackId } = req.body;
+  if (!trackId) return res.status(400).send(`ERROR: Request Body requires a track ID.`);
+  
+  const playlistTrack = await createPlayListTrack(req.playlist.id, trackId);
+  res.status(201).send(playlistTrack);
 });
